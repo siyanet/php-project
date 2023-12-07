@@ -4,6 +4,7 @@ require_once("dbcreate.php");
 require_once("dbconn.php";)
 $db_name="SIMS";
 $sql="use '$db_name'";
+#selecting db
 try{
     if(!conn->query($sql)){
         throw new Exception("db select failed" .$conn->error);

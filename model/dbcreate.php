@@ -1,8 +1,9 @@
 <?php
 require_once("dbconn.php");
+#creating database if not created
 $dbname = "SIMS";
-$sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$dbname";
-if(! $conn->query($sql)){
+$result_db = $conn->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$dbname");
+if(! $result_db){
     $sql_create_db = "create database '$dbname'";
 }
 else{
@@ -10,6 +11,7 @@ else{
 }
 if($sql_create_db){
     try{
+        #throw exception if there is error in executing query
         if(!$conn->query($sql_create_db)){
             throw new Exception("data base not created" . $conn->connect_error);
         }
