@@ -1,7 +1,7 @@
 <?php
 require_once("dbcreate.php");
 require_once("dbselect.php");
-$tb_name = "Student"
+$tb_name = "Student";
 $result = $conn->query("show tables from $db_name Like '$tb_name'");
 if($result->num_rows ==0){
     $sql_tb="create table $tb_name(id int Auto_Increment PRIMARY KEY,
@@ -10,7 +10,7 @@ if($result->num_rows ==0){
     last_name varchar(20) not null,
     gender varchar(10) not null,
     date_of_birth date not null,
-    grade int not null, 
+    grade int not null check(grade between 1 and 12), 
     school_name varchar(20) not null,
     reg_date timestamp default current_timestamp)
     "
