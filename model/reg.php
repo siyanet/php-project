@@ -1,7 +1,9 @@
 <?php
+#checking the db and table is created if not create one
 require_once("tbcreate.php")
 require_once("dbselect.php")
 if(isset($_POST["submit"])){
+    #getting the form values
     $fname = $_POST["first_name"];
     $mname = $_POST["middel_name"];
     $lname = $_POST["last_name"];
@@ -9,18 +11,21 @@ if(isset($_POST["submit"])){
     $dob = $_POST["dob"];
     $grade = $_POST["grade"];
     $school = $_POST["school_name"];
+    #sql statment to insert the form data
     $sql = "insert into $tb_name()values($fname,$mname,$lname,$gender,$dob,$grade,$school) ";
+    #executing query in try catch block
     try{
         if(!$conn->query($sql)){
             throw new Exception("infn is not enetered " .$conn->error);
         }
-        echo "data entred succesfully";
+        echo "data entered succesfully";
 
     }
     catch(exception $e){
         echo $e.getMessage();
     }
 }
+#closing the connection
 $conn->close();
 
 ?>
