@@ -12,7 +12,7 @@ try{
     }
     echo "db selected succesfully";
 }
-catch (exception $e){
+catch (Exception $e){
     echo $e->getMessage();
 }
 ?>

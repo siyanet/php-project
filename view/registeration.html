@@ -14,16 +14,16 @@
     <form action="reg.php" method="post">
         <div class="mb-3">
         <label for = "first-name" class="form-label">First Name</label>
-        <input type = "text" class ="form-control" id="first-name" required/>
+        <input name ="first_name" type = "text" class ="form-control" id="first-name" required/>
         </div>
         <div  class="mb-3">
         <label for = "middel-name" class = "form-label">Middel Name</label>
-        <input type="text" class="form-control" id="middel-name" required/>
+        <input  name = "middel_name" type="text" class="form-control" id="middel-name" required/>
     </div>
 
     <div class="mb-3">
         <label for = "last-name" class ="form-label">Last Name</label>
-        <input type="text" class="form-control" id="last-name" required/>
+        <input name ="last_name" type="text" class="form-control" id="last-name" required/>
     </div>
 <div class = "mb-3">
         <label for="gender" class = "form-label">Gender</label>
@@ -39,8 +39,8 @@
         </div>
         </div>
         <div class="mb-3">
-            <label for="date-birth" class = "form-label">Date of Birth</label>
-        <input type = "date" id="date-birth" class = "form-control" required/>
+            <label for="date_birth" class = "form-label">Date of Birth</label>
+        <input type = "date" name = "dob" id="date_birth" class = "form-control" required/>
         </div>
         <div class="mb-3">
             <label for="grade" class="form-label">Grade</label>
@@ -50,7 +50,7 @@
         </div>
         <div class="mb-3">
             <label for="school" class="form-label">School</label>
-            <select id="school" class = "form-select form-select-lg">
+            <select name = "school_name" id="school" class = "form-select form-select-lg">
                 <option value = "bole school">Bole School</option>
                 <option value = "lideta">Lideta School</option>
                 <option value = "menilik">Menilik School</option>

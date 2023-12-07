@@ -25,7 +25,7 @@ if($sql_tb){
         }
         echo "table created succesfully";
     }
-    catch(exception $e){
+    catch(Exception $e){
         echo $e->getMessage();
     }
 

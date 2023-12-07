@@ -12,7 +12,7 @@ if(isset($_POST["submit"])){
     $grade = $_POST["grade"];
     $school = $_POST["school_name"];
     #sql statment to insert the form data
-    $sql = "insert into $tb_name()values($fname,$mname,$lname,$gender,$dob,$grade,$school) ";
+    $sql = "insert into $tb_name(first_name,middle_name,last_name,gender,date_of_birth,grade,shool_name)values($fname,$mname,$lname,$gender,$dob,$grade,$school) ";
     #executing query in try catch block
     try{
         if(!$conn->query($sql)){
