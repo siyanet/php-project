@@ -11,7 +11,7 @@
     <h1>
         Student Registeration Form
     </h1>
-    <form action="../model/reg.php" method="post">
+    <form action="../model/reg.php" method="post" onsubmit="return validate_dob()">
         <div class="mb-3">
         <label for = "first-name" class="form-label">First Name</label>
         <input name ="first_name" type = "text" class ="form-control" id="first-name" required/>
@@ -71,5 +71,6 @@
     </form>    
 
 </div>
+<script src="validate.js"></script>
 </body>
 </html>
