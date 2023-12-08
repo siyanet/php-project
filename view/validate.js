@@ -3,8 +3,12 @@ function validate_dob(){
     let fiveyears = new Date();
      fiveyears.setFullYear(fiveyears.getFullYear()-5);
     if (dob >= fiveyears){
-        alert("you are not young enough");
+        alert("you are not younge enough");
         return false;
     }
    return true;
+}
+function view_detail(id){
+
+
 }
