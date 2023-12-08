@@ -25,33 +25,23 @@
             <table class="table table-strip table-hover table-bordered table-responsive">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>first-name</th>
+                        <th>middel-name</th>
                         <th>last-name</th>
+                        
+                        <th>Gender</th>
                         <th>Grade</th>
+                        <th>School</th>
+                        <th>Registeration Date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>alemu</td>
-                        <td>kebede</td>
-                        <td>7</td>
-                        <td>
-                            <i class="fas fa-info-circle " ></i>
-                            <i class="fa fa-edit"></i>
-                            <i class="fas fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>abebe</td> 
-                        <td>challa</td>
-                        <td>8</td>
-                        <td>
-                            <i class = "fas fa-info-circle"></i>
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash-alt"></i>
-                        </td>
-                    </tr>
+                    <?php 
+                      require_once("../model/list.php");
+                    ?>
+                </tbody>
                   
                 </tbody>
             </table>

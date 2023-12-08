@@ -10,7 +10,7 @@ try{
         throw new Exception("db select failed" .$conn->error);
 
     }
-    echo "db selected succesfully";
+    #echo "db selected succesfully";
 }
 catch (Exception $e){
     echo $e->getMessage();

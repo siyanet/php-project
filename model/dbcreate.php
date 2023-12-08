@@ -17,7 +17,7 @@ if(!$result_db){
     }
 }
 else{
-    echo "database has been created";
+    #echo "database has been created";
 }
 
 #$conn->close();
