@@ -7,18 +7,18 @@ function validate_dob(){
         return false;
     }
    return true;
-}
-function validate_name(){
-  let fname = new String(document.getElementById("first_name").value);
-  let lname = new String(document.getElementById("last_name").value);
-  let mname = new String(document.getElementById("middel_name").value);
-  let names = [fname,lname,mname];
-  let isValid = names.every(name => /^[A-Za-z]+$/.test(name));
+  }
+function validate_name() {
+  let fname = document.getElementById("first_name").value;
+  let lname = document.getElementById("last_name").value;
+  let mname = document.getElementById("middle_name").value;
+  
+  // Validation pattern: Allow letters, spaces, and hyphens in names
+  let isValid = /^[A-Za-z\s\-]+$/.test(fname) && /^[A-Za-z\s\-]+$/.test(lname) && /^[A-Za-z\s\-]+$/.test(mname);
 
-  if (isValid) {
-    return true;
-  } else {
-    alert("enter name in correct format");
+  if (!isValid) {
+    alert("Enter name in correct format (letters, spaces, and hyphens only)");
     return false;
   }
+  return true;
 }
