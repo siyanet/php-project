@@ -8,7 +8,3 @@ function validate_dob(){
     }
    return true;
 }
-function view_detail(id){
-
-
-}

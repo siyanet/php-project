@@ -16,7 +16,9 @@ if ($result->num_rows > 0){
         echo "<td>" .$row['school_name'] . "</td>";
         echo "<td>" .$row['reg_date'] . "</td>";
         echo "<td>";
-            echo " <a href='view_detail.php'?id= " . $row['id'] .") '><i class='fas fa-info-circle ' ></i> </a>";
+        
+
+            echo " <a href='../view/view_detail.php?id= " . $row['id'] ."'><i class='fas fa-info-circle ' ></i> </a>";
             echo "<button onclick = 'view_detail()'><i class='fa fa-edit'></i> </button>";
             echo "<button onclick = 'view_detail()'><i class='fas fa-trash-alt'></i></button>";
         echo "</td>";
