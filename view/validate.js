@@ -8,7 +8,17 @@ function validate_dob(){
     }
    return true;
 }
-function view_detail(id){
+function validate_name(){
+    let fname = new String(document.getElementById("first_name").value);
+    let lname = new String(document.getElementById("last_name").value);
+    let mname = new String(document.getElementById("middel_name").value);
+    let names = [fname,lname,mname];
+    let isValid = names.every(name => /^[A-Za-z]+$/.test(name));
 
-
+    if (isValid) {
+      return true;
+    } else {
+      alert("enter name in correct format");
+      return false;
+    }
 }
