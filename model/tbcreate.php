@@ -1,8 +1,10 @@
 <?php
 require_once("dbcreate.php");
 require_once("dbselect.php");
+
 $tb_name = "Student";
-$result = $conn->query("show tables from $db_name Like '$tb_name'");
+$dbname = "SIMS";
+$result = $conn->query("show tables from $dbname Like '$tb_name'");
 if($result->num_rows ==0){
     $sql_tb = "create table $tb_name(id int Auto_Increment PRIMARY KEY,
     first_name varchar(20) not null,
@@ -28,5 +30,5 @@ else{
     echo "table has been created";
 }
 
-#conn->close();
+
 ?>
