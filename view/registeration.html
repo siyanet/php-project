@@ -4,33 +4,36 @@
        
         <title>Student Registeration Form</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-        
+        <link rel = "stylesheet" href = "registeration.css">
 
     </head>
     <body>
-    <h1>
-        Student Registeration Form
-    </h1>
+        <div class = "container">
+   <div class = "title">
+                <h1>Student Registeration Form</h1>
+                </div>
+              
+       
     <form action="../model/reg.php" method="post" onsubmit="return validate_dob()">
         <div class="mb-3">
-        <label for = "first-name" class="form-label">First Name</label>
-        <input name ="first_name" type = "text" class ="form-control" id="first-name" required/>
+        <label for = "first-name" class="form-label h4">First Name</label>
+        <input name ="first_name" type = "text" class ="form-control form-control-lg" id="first-name" required/>
         </div>
         <div  class="mb-3">
-        <label for = "middel-name" class = "form-label">Middel Name</label>
+        <label for = "middel-name" class = "form-labe h4">Middel Name</label>
         <input  name = "middel_name" type="text" class="form-control" id="middel-name" required/>
     </div>
 
     <div class="mb-3">
-        <label for = "last-name" class ="form-label">Last Name</label>
+        <label for = "last-name" class ="form-label h4">Last Name</label>
         <input name ="last_name" type="text" class="form-control" id="last-name" required/>
     </div>
 <div class = "mb-3">
-        <label for="gender" class = "form-label">Gender</label>
+        <label for="gender" class = "form-label h4">Gender</label>
         <div class="mb-3">
         <div class="form-check form-check-inline">
         <input type="radio" class="form-check-input" id="male" name ="gender" value = "male" required/>
-        <label for="male"class = "form-check-label"> Male</label>
+        <label for="male"class = "form-check-label "> Male</label>
         <div class="form-check form-check-inline">
             <input type ="radio" id="female" name = "gender"  class="form-check-input"value = "female"/>
         <label for="female">Female</label>
@@ -39,17 +42,17 @@
         </div>
         </div>
         <div class="mb-3">
-            <label for="date_birth" class = "form-label">Date of Birth</label>
+            <label for="date_birth" class = "form-label h4">Date of Birth</label>
         <input type = "date" name = "dob" id="date_birth" class = "form-control" required/>
         </div>
         <div class="mb-3">
-            <label for="grade" class="form-label">Grade</label>
+            <label for="grade" class="form-label h4">Grade</label>
                 <input id = "grade" type="number" name="grade" class = "form-control" required/>
         </div>
         
         </div>
         <div class="mb-3">
-            <label for="school" class="form-label">School</label>
+            <label for="school" class="form-label h4">School</label>
             <select name = "school_name" id="school" class = "form-select form-select-lg">
                 <option value = "bole school">Bole School</option>
                 <option value = "lideta">Lideta School</option>
@@ -70,6 +73,7 @@
     
     </form>    
 
+</div>
 </div>
 <script src="validate.js"></script>
 </body>
