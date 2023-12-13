@@ -18,9 +18,12 @@ if ($result->num_rows > 0){
         echo "<td>";
         
 
-            echo " <a href='../view/view_detail.php?id= " . $row['id'] ."'><i class='fas fa-info-circle ' ></i> </a>";
-            echo "<button onclick = 'view_detail()'><i class='fa fa-edit'></i> </button>";
-            echo "<button onclick = 'view_detail()'><i class='fas fa-trash-alt'></i></button>";
+            echo " <a href='../view/detail_view.php?id= " . $row['id'] ."'><i class='fas fa-info-circle ' ></i> </a>";
+            echo"
+            <form method = 'POST' action = '../model/delete_recorde.php'>
+            <input type = 'hidden' value = '". $row['id'] ."' name ='student-id'>
+            <button type = 'submit'><i class='fa fa-edit'></i> </button>
+            <button type = 'submit' name = 'delete_button'><i class='fas fa-trash-alt'></i></button>";
         echo "</td>";
     echo "</tr>";
     }
