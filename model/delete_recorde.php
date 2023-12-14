@@ -12,6 +12,8 @@ if(isset($_POST["delete_button"])){
         $stmt->execute();
     if($stmt->affected_rows > 0){
         echo "recored is deleted successfully";
+        header("Location: ../view/list_view.php");
+        exit();
     }
     else{
         echo "recored is not deleted";

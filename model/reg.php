@@ -22,7 +22,8 @@ if(isset($_POST["submit"])){
             throw new Exception("infn is not entered " .$sql->errno) ;
         }
         echo "data entered succesfully";
-
+        header ("Location: ../view/list_view.php");
+        exit();
     }
     catch(Exception $e){
         echo $e->getMessage();
