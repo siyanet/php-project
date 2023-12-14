@@ -31,58 +31,61 @@
     
                 #echo "<h1>". $row["first_name"] ." ". $row["middle_name"] ."</h1>";
                 echo"<div class = 'container'>
-                <form>
+                <form method = 'post' action='../model/edit.php'>
+                <input type = 'hidden' value = ". $id ."name = 'id'>
                  <div class ='row'>
                  <label for = 'first-name' class = 'col-4 form-label text-right h4'> First Name </label>
                  <div class = 'col-8'>
-                 <input id = 'first-name' class ='form-control form-control-lg' readonly value =" . $row['first_name'] . ">
+                 <input id = 'first-name' name = 'first-name' class ='form-control form-control-lg' value =" . $row['first_name'] . ">
                  </div>
                 </div>
 
                 <div class = 'row'>
                 <label for = 'middel-name' class = 'col-4 form-label text-right h4'> Middel Name </label>
                 <div class = 'col-8'>
-                <input id = 'Middel-name' class ='form-control form-control-lg' readonly value =" . $row['middle_name'] . ">
+                <input id = 'Middel-name' name = 'middel-name' class ='form-control form-control-lg' value =" . $row['middle_name'] . ">
                </div>
                </div>
 
                <div class = 'row'>
                 <label for = 'last-name' class = 'col-4 form-label text-right h4'> Last Name </label>
                 <div class = 'col-8'>
-               <input id = 'last-name' class ='form-control form-control-lg' readonly value =" . $row['last_name'] . ">
+               <input id = 'last-name' name = 'last-name'class ='form-control form-control-lg' value =" . $row['last_name'] . ">
                </div>
                </div>
 
                <div class = 'row'>
                <label for = 'gender' class = 'col-4 form-label text-right h4'> Gender </label>
                <div class = 'col-8'>
-                <input id = 'gender' class ='form-control form-control-lg' readonly value =" . $row['gender'] . ">
+                <input id = 'gender' name = 'gender' class ='form-control form-control-lg' value =" . $row['gender'] . ">
                 </div>
                 </div>
 
                 <div class = 'row'>
                 <label for = 'grade' class = 'col-4 form-label text-right h4'> Grade </label>
                 <div class = 'col-8'>
-                <input id = 'grade' class ='col-8 form-control form-control-lg' readonly value =" . $row['grade'] . ">
-                </div>
-                </div>
-
-                <div class = 'row'>
-                <label for = 'reg-date' class = 'col-4 form-label text-right h4'> Registeration Date </label>
-                <div class = 'col-8'>
-                <input id = 'reg-date' class ='col-8 form-control form-control-lg' readonly value =" . $row['reg_date'] . "
+                <input id = 'grade' name = 'grade' class ='col-8 form-control form-control-lg' value =" . $row['grade'] . ">
                 </div>
                 </div>
 
                 <div class = 'row'>
                 <label for = 'school-name' class = 'col-4 form-label text-right h4'> School Name </label>
                 <div class = 'col-8'>
-                <input id = 'school-name' class ='form-control form-control-lg' readonly value =" . $row['school_name'] . ">
+                <input id = 'school-name' name = 'school_name' class ='form-control form-control-lg' value =" . $row['school_name'] .  "
+                </div>
+                </div>
+
+               
+                <div class='row g-3 justify-content-center'>
+                <div class='col-auto'>
+                <button type='submit' class = 'btn btn-danger btn-lg ml-5 text-right'>update</button>
                 </div>
                 </div>
                
+                
                 </form>
-                </div>";
+                </div>
+                ";
 
 
 
