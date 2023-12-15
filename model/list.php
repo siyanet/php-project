@@ -13,6 +13,7 @@ if ($result->num_rows > 0){
         echo "<td>" .$row['last_name'] . "</td>";
         echo "<td>" .$row['gender'] . "</td>";
         echo "<td>" .$row["grade"] . "</td>";
+        echo "<td>" .$row["reg_date"]."</td>";
         echo "<td>" .$row['school_name'] . "</td>";
         echo "<td>";
         
