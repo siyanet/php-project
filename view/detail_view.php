@@ -66,6 +66,12 @@
                 <input id = 'grade' class ='col-8 form-control form-control-lg' readonly value =" . $row['grade'] . ">
                 </div>
                 </div>
+                <div class = 'row'>
+                <label for = 'dob' class = 'col-4 form-label text-right h4'> Date Of Birth </label>
+                <div class = 'col-8'>
+                <input id = 'dob' class ='col-8 form-control form-control-lg' readonly value =" . $row['date_of_birth'] . ">
+                </div>
+                </div>
 
                 <div class = 'row'>
                 <label for = 'reg-date' class = 'col-4 form-label text-right h4'> Registeration Date </label>
@@ -80,6 +86,7 @@
                 <input id = 'school-name' class ='form-control form-control-lg' readonly value =" . $row['school_name'] . ">
                 </div>
                 </div>
+                
                
                 </form>
                 </div>";

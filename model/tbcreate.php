@@ -14,7 +14,9 @@ if($result->num_rows ==0){
     date_of_birth date not null,
     grade int not null check(grade between 1 and 12), 
     school_name varchar(20) not null,
-    reg_date timestamp default current_timestamp)
+    reg_date timestamp default current_timestamp,
+    updated_at datetime,
+    deleted_at datetime)
     ";
     try{
         if(!$conn->query($sql_tb)){
@@ -27,7 +29,7 @@ if($result->num_rows ==0){
     }
 }
 else{
-    echo "table has been created";
+    #echo "table has been created";
 }
 
 

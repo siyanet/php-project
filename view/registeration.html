@@ -21,16 +21,16 @@
 
         <div class="mb-3">
         <label for = "first-name" class="form-label h4">First Name</label>
-        <input name ="first_name" type = "text" class ="form-control form-control-lg" id="first-name" required/>
+        <input name ="first_name" type = "text" pattern = "[a-zA-Z]+" class ="form-control form-control-lg" id="first-name" required/>
         </div>
         <div  class="mb-3">
         <label for = "middel-name" class = "form-label h4">Middel Name</label>
-        <input  name = "middel_name" type="text" class="form-control" id="middel-name" required/>
+        <input  name = "middel_name" type="text"pattern = "[a-zA-Z]+" class="form-control" id="middel-name" required/>
     </div>
 
     <div class="mb-3">
         <label for = "last-name" class ="form-label h4">Last Name</label>
-        <input name ="last_name" type="text" class="form-control" id="last-name" required/>
+        <input name ="last_name" type="text" pattern ="[a-zA-Z]+" class="form-control" id="last-name" required/>
     </div>
 <div class = "mb-3">
         <label for="gender" class = "form-label h4">Gender</label>
@@ -51,7 +51,7 @@
         </div>
         <div class="mb-3">
             <label for="grade" class="form-label h4">Grade</label>
-                <input id = "grade" type="number" name="grade" class = "form-control" required/>
+                <input id = "grade" type="number" min = '1' max ='12' name="grade" class = "form-control" required/>
         </div>
         
         </div>

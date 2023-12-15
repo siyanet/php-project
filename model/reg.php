@@ -4,13 +4,13 @@ require_once("tbcreate.php");
 
 if(isset($_POST["submit"])){
     #getting the form values
-    $fname = $_POST["first_name"];
-    $mname = $_POST["middel_name"];
-    $lname = $_POST["last_name"];
-    $gender = $_POST["gender"];
-    $dob = $_POST["dob"];
-    $grade = $_POST["grade"];
-    $school = $_POST["school_name"];
+    $fname = mysqli_real_escape_string($conn,$_POST["first_name"]);
+    $mname = mysqli_real_escape_string($conn,$_POST["middel_name"]);
+    $lname = mysqli_real_escape_string($conn,$_POST["last_name"]);
+    $gender = mysqli_real_escape_string($conn,$_POST["gender"]);
+    $dob = mysqli_real_escape_string($conn,$_POST["dob"]);
+    $grade = mysqli_real_escape_string($conn,$_POST["grade"]);
+    $school = mysqli_real_escape_string($conn,$_POST["school_name"]);
     #sql statment to insert the form data
     #$sql = "insert into $tb_name (first_name,middle_name,last_name,gender,date_of_birth,grade,school_name)values('$fname','$mname','$lname','$gender','$dob',$grade,'$school') ";
     #executing query in try catch block
@@ -21,7 +21,7 @@ if(isset($_POST["submit"])){
         if(!$sql->execute()){
             throw new Exception("infn is not entered " .$sql->errno) ;
         }
-        echo "data entered succesfully";
+        #echo "data entered succesfully";
         header ("Location: ../view/list_view.php");
         exit();
     }

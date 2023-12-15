@@ -31,54 +31,74 @@
     
                 #echo "<h1>". $row["first_name"] ." ". $row["middle_name"] ."</h1>";
                 echo"<div class = 'container'>
-                <form method = 'post' action='../model/edit.php'>
-                <input type = 'hidden' value = ". $id ."name = 'id'>
-                 <div class ='row'>
+                <form method = 'post' action='../model/edit.php' onsubmit='return validate_dob()'>
+                <input type = 'hidden'  name = 'id' value = ". $id .">
+                 <div class ='row mb-1'>
                  <label for = 'first-name' class = 'col-4 form-label text-right h4'> First Name </label>
                  <div class = 'col-8'>
-                 <input id = 'first-name' name = 'first-name' class ='form-control form-control-lg' value =" . $row['first_name'] . ">
+                 <input id = 'first-name' name = 'first-name' pattern = '[a-zA-Z]+' class ='form-control form-control-lg' value ='" . $row['first_name'] . "' required>
                  </div>
                 </div>
 
-                <div class = 'row'>
+                <div class = 'row '>
                 <label for = 'middel-name' class = 'col-4 form-label text-right h4'> Middel Name </label>
                 <div class = 'col-8'>
-                <input id = 'Middel-name' name = 'middel-name' class ='form-control form-control-lg' value =" . $row['middle_name'] . ">
+                <input id = 'Middel-name' name = 'middel-name' pattern = '[a-zA-Z]+' class ='form-control required form-control-lg' value ='" . $row['middle_name'] . "' required>
                </div>
                </div>
 
                <div class = 'row'>
                 <label for = 'last-name' class = 'col-4 form-label text-right h4'> Last Name </label>
                 <div class = 'col-8'>
-               <input id = 'last-name' name = 'last-name'class ='form-control form-control-lg' value =" . $row['last_name'] . ">
+               <input id = 'last-name' name = 'last-name' pattern = '[a-zA-Z]+' class ='form-control form-control-lg' value ='" . $row['last_name'] . "' required>
                </div>
                </div>
 
-               <div class = 'row'>
-               <label for = 'gender' class = 'col-4 form-label text-right h4'> Gender </label>
-               <div class = 'col-8'>
-                <input id = 'gender' name = 'gender' class ='form-control form-control-lg' value =" . $row['gender'] . ">
-                </div>
-                </div>
+        
+                <div class='row'>
+                <label for='gender' class = 'col-4 text-right form-label h4'>Gender</label>
+                <div class='col'>
+        <div class='form-check form-check-inline'>
+        <input type='radio' class='form-check-input' id='male' name ='gender' value = 'male' required>
+        <label for='male'class = 'form-check-label '> Male</label>
+        <div class='form-check form-check-inline'>
+            <input type ='radio' id='female' name = 'gender'  class='form-check-input'value = 'female'>
+        <label for='female'>Female</label>
+        </div>
+        </div>
+        </div>
+        </div>
 
-                <div class = 'row'>
+                <div class = 'row '>
                 <label for = 'grade' class = 'col-4 form-label text-right h4'> Grade </label>
                 <div class = 'col-8'>
-                <input id = 'grade' name = 'grade' class ='col-8 form-control form-control-lg' value =" . $row['grade'] . ">
+                <input type = 'number' min = '1' max = '12' id = 'grade' name = 'grade' class ='col-8 form-control form-control-lg' value ='" . $row['grade'] . "' required>
+                </div>
+                </div>
+                <div class = 'row '>
+                <label for = 'dob' class = 'col-4 form-label text-right h4'> Date Of Birth </label>
+                <div class = 'col-8'>
+                <input type = 'date' id = 'date_birth' name = 'dob' class ='col-8 form-control form-control-lg' value =" . $row['date_of_birth'] . ">
                 </div>
                 </div>
 
-                <div class = 'row'>
-                <label for = 'school-name' class = 'col-4 form-label text-right h4'> School Name </label>
+                <div class = 'row '>
+                <label for='school-name' class='col-4 form-label text-right h4'>School</label>
                 <div class = 'col-8'>
-                <input id = 'school-name' name = 'school_name' class ='form-control form-control-lg' value =" . $row['school_name'] .  "
+                <select name = 'school-name' id='school' class = 'form-select form-select-lg' required>
+                <option value = 'bole school'>Bole School</option>
+                <option value = 'lideta'>Lideta School</option>
+                <option value = 'menilik'>Menilik School</option>
+                <option value = 'Akaki'>Akaki School</option>
+                <option value = 'arada'>Arada School</option>
+            </select>
                 </div>
                 </div>
 
                
-                <div class='row g-3 justify-content-center'>
+                <div class='row mt-3 justify-content-center'>
                 <div class='col-auto'>
-                <button type='submit' class = 'btn btn-danger btn-lg ml-5 text-right'>update</button>
+                <button type='submit' name = 'submit' class = 'btn btn-danger btn-lg ml-5 text-right'>update</button>
                 </div>
                 </div>
                
@@ -97,5 +117,6 @@
     }
         ?>
         </div>
+        <script src="validate.js"></script>
     </body>
 </html>

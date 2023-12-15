@@ -1,7 +1,7 @@
 <?php 
 require_once('dbselect.php');
 $tb_name = "Student";
-$sql_fetch = "select * from $tb_name";
+$sql_fetch = "select * from $tb_name where deleted_at IS NULL";
 try{
 $result = $conn->query($sql_fetch);
 if ($result->num_rows > 0){
@@ -14,7 +14,6 @@ if ($result->num_rows > 0){
         echo "<td>" .$row['gender'] . "</td>";
         echo "<td>" .$row["grade"] . "</td>";
         echo "<td>" .$row['school_name'] . "</td>";
-        echo "<td>" .$row['reg_date'] . "</td>";
         echo "<td>";
         
 
@@ -22,10 +21,12 @@ if ($result->num_rows > 0){
             echo"
             <a href='../view/edit_view.php?id=".$row["id"]."'><i class='fa fa-edit'></i> </a>";
             echo"
+            <span>
             <form method = 'POST' action = '../model/delete_recorde.php'>
             <input type = 'hidden' value = '". $row['id'] ."' name ='student-id'>
             
-            <button type = 'submit' name = 'delete_button'><i class='fas fa-trash-alt'></i></button>";
+            <a href='#' ><button type = 'submit' name = 'delete_button' class = 'btn-sm  button-danger custom-inline-button'><i class='fas fa-trash-alt '></i></button></a>
+            </span>";
         echo "</td>";
     echo "</tr>";
     }

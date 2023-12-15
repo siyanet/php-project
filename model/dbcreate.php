@@ -10,7 +10,7 @@ if($result_db->num_rows == 0){
         if(!$conn->query($sql_create_db)){
             throw new Exception("data base not created" . $conn->connect_error);
         }
-        echo "database created succesfully";
+        #echo "database created succesfully";
     }
     catch(Exception $e){
         echo $e->getMessage();
@@ -18,7 +18,7 @@ if($result_db->num_rows == 0){
 }
 else{
    
-    echo "database has been created";
+    #echo "database has been created";
 }
 
 #$conn->close();
