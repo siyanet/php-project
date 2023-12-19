@@ -1,7 +1,15 @@
 <?php 
 require_once('dbselect.php');
 $tb_name = "Student";
-$sql_fetch = "select * from $tb_name where deleted_at IS NULL";
+$results_per_page= 5;
+if (!isset($_GET["page"])){
+    $page = 1;
+} 
+else{
+    $page = $_GET('page');
+}
+$start_from = ($page -1) * $results_per_page;
+$sql_fetch = "select * from $tb_name where deleted_at IS NULL LIMIT $start_from,$results_per_page";
 try{
 $result = $conn->query($sql_fetch);
 if ($result->num_rows > 0){

@@ -40,11 +40,26 @@
                 <tbody>
                     <?php 
                       require_once("../model/list.php");
+                      $sql_total = "select count(*) as total from $tb_name";
+            $result_total = $conn->query($sql_total);
+            $row_total = $result_total ->fetch_assoc();
+            $total = $row_total["total"];
+            $total_pages = ceil($total /5);
+            for ($i = 1; $i <= $total_pages; $i++){
+                echo "<a href = '../model/list.php?page = ". $i."'>".$i."</a>";
+            }
                     ?>
                 </tbody>
                   
                 </tbody>
             </table>
+            <?php 
+            
+
+            
+
+
+            ?>
         </div>
         </body>
 </html>
