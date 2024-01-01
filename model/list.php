@@ -1,17 +1,28 @@
 <?php 
 require_once('dbselect.php');
+
 $tb_name = "Student";
-$results_per_page= 5;
-if (!isset($_GET["page"])){
-    $page = 1;
-} 
-else{
-    $page = $_GET('page');
-}
+$results_per_page= 1;
+
+
+$page = $_GET['page'] ?? 1;
+
+
+
 $start_from = ($page -1) * $results_per_page;
-$sql_fetch = "select * from $tb_name where deleted_at IS NULL LIMIT $start_from,$results_per_page";
+$sql_fetch = "select * from $tb_name where deleted_at IS NULL LIMIT $start_from,$results_per_page"; 
+if(isset($_POST["search_text"])){
+    $search = $_POST['search_text'];
+    $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND first_name = '$search' LIMIT $start_from,$results_per_page";
+}
+if(isset($_POST['school'])){
+    $school_name = $_POST['school'];
+    $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND school_name = '$school_name'LIMIT $start_from,$results_per_page"; 
+}
+
 try{
 $result = $conn->query($sql_fetch);
+
 if ($result->num_rows > 0){
     while ($row = $result->fetch_assoc()){
         echo "<tr>";

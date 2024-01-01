@@ -15,11 +15,39 @@
                 <div class="row justify-content-center">
                     <div class="col-auto">
                         <h1>Student List</h1>
-                    </div>
+                        </div>
                 </div>
         
 
             </div>
+<div class = "container">
+<div class = "row">
+<div class = "col">
+                        <form method = 'POST' >
+                            <label >search</label>
+                            <input  name = 'search_text' type ='text'>
+                            <input class = 'btn-primary'type = 'submit' value = 'submit'>
+                        </form>
+</div>
+<div class = 'col-3'>
+                        <form  method='POST'>
+                           
+                            <label for="school" class=" text-left form-label h4">School</label>
+            <select name = "school" id="school">
+                <option value = "bole school">Bole School</option>
+                <option value = "lideta">Lideta School</option>
+                <option value = "menilik">Menilik School</option>
+                <option value = "akaki">Akaki School</option>
+                <option value = "arada">Arada School</option>
+            </select>
+            <input class = 'btn-primary'type = 'submit' value = 'submit'>
+
+</form>
+</div>
+</div>
+</div>
+                        
+                 
             
             <div class="container ">
             <table class="table table-strip table-hover table-bordered table-responsive">
@@ -39,20 +67,52 @@
                 </thead>
                 <tbody>
                     <?php 
-                      require_once("../model/list.php");
+                      include '../model/list.php' ;
                       $sql_total = "select count(*) as total from $tb_name";
             $result_total = $conn->query($sql_total);
             $row_total = $result_total ->fetch_assoc();
             $total = $row_total["total"];
             $total_pages = ceil($total /5);
-            for ($i = 1; $i <= $total_pages; $i++){
-                echo "<a href = '../model/list.php?page = ". $i."'>".$i."</a>";
-            }
-                    ?>
-                </tbody>
-                  
-                </tbody>
+            echo "
+            </tbody>
             </table>
+            <div class = 'container'>
+            <nav aria-label='Page navigation'>
+      <ul class='pagination'>";
+            if(isset($_GET['page']) && $_GET['page'] > 1){
+                echo "<li class = 'page-item'><a class = 'page-link' href='?page =". $_GET['page'] - 1 ."'>previsous </a></li>";
+            }
+            else{
+                echo "<li class = 'page-item'><a class='page-link' href = ''>previsous</a></li>";
+            }
+           
+           
+        
+            for ($i = 1; $i <= $total_pages; $i++){
+                
+                echo "<li class = 'page-item'><a class = 'page-link' href='?page=" . $i . "'>" . $i . "</a> </li>";
+
+            }
+            if(!isset($_GET['page'])){
+                echo "<li class = 'page-item'><a class = 'page-link' href ='?page=2'>Next</a></li>";
+            }
+            else{
+                if($_GET['page'] >= $total_pages){
+                    echo "<li class = 'page-item'><a class = 'page-link'>Next</a></li>";
+
+                }
+                else{
+                    echo "<li class = 'page-item'><a class= 'page-link' href='?page=".$_GET['page'] + 1 ."'>Next</a></li>";
+                }
+            }
+           
+                    echo "
+                    </ul>
+                    </nav>
+                    </div>" ?>
+           
+                  
+                
             <?php 
             
 
