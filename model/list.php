@@ -10,14 +10,17 @@ $page = $_GET['page'] ?? 1;
 
 
 $start_from = ($page -1) * $results_per_page;
-$sql_fetch = "select * from $tb_name where deleted_at IS NULL LIMIT $start_from,$results_per_page"; 
-if(isset($_POST["search_text"])){
+
+if(isset($_POST["search_submit"])){
     $search = $_POST['search_text'];
     $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND first_name = '$search' LIMIT $start_from,$results_per_page";
 }
-if(isset($_POST['school'])){
-    $school_name = $_POST['school'];
+elseif (isset($_POST['school_submit'])){
+    $school_name = $_POST['school_filter'];
     $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND school_name = '$school_name'LIMIT $start_from,$results_per_page"; 
+}
+else{
+    $sql_fetch = "select * from $tb_name where deleted_at IS NULL LIMIT $start_from,$results_per_page"; 
 }
 
 try{
@@ -32,8 +35,9 @@ if ($result->num_rows > 0){
         echo "<td>" .$row['last_name'] . "</td>";
         echo "<td>" .$row['gender'] . "</td>";
         echo "<td>" .$row["grade"] . "</td>";
-        echo "<td>" .$row["reg_date"]."</td>";
         echo "<td>" .$row['school_name'] . "</td>";
+        echo "<td>" .$row["reg_date"]."</td>";
+        
         echo "<td>";
         
 
@@ -57,7 +61,7 @@ else {
 }
 }
 catch  (Exception $e) {
-echo $e->getMessage();
+echo "<tr><td colspan = '9' style = 'text-align: center;'>".$e->getMessage()."</td></tr>";
 }
 
 

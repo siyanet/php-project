@@ -30,6 +30,7 @@
                     
     
                 #echo "<h1>". $row["first_name"] ." ". $row["middle_name"] ."</h1>";
+               
                 echo"<div class = 'container'>
                 <form method = 'post' action='../model/edit.php' onsubmit='return validate_dob()'>
                 <input type = 'hidden'  name = 'id' value = ". $id .">
@@ -59,10 +60,20 @@
                 <label for='gender' class = 'col-4 text-right form-label h4'>Gender</label>
                 <div class='col'>
         <div class='form-check form-check-inline'>
-        <input type='radio' class='form-check-input' id='male' name ='gender' value = 'male' required>
+        <input type='radio' class='form-check-input' id='male' name ='gender' value = 'male' 
+        "?>
+             <?php echo ($row['gender'] == 'male') ? 'checked' : ''; ?>
+            <?php 
+            echo "required>
         <label for='male'class = 'form-check-label '> Male</label>
         <div class='form-check form-check-inline'>
-            <input type ='radio' id='female' name = 'gender'  class='form-check-input'value = 'female'>
+            <input type ='radio' id='female' name = 'gender'  class='form-check-input'value = 'female'
+            "?>
+             <?php echo ($row['gender'] == 'female') ? 'checked' : ''; ?>
+            <?php 
+            echo "
+            
+            '>
         <label for='female'>Female</label>
         </div>
         </div>
@@ -82,18 +93,29 @@
                 </div>
                 </div>
 
-                <div class = 'row '>
-                <label for='school-name' class='col-4 form-label text-right h4'>School</label>
-                <div class = 'col-8'>
-                <select name = 'school-name' id='school' class = 'form-select form-select-lg' required>
-                <option value = 'bole school'>Bole School</option>
-                <option value = 'lideta'>Lideta School</option>
-                <option value = 'menilik'>Menilik School</option>
-                <option value = 'Akaki'>Akaki School</option>
-                <option value = 'arada'>Arada School</option>
-            </select>
-                </div>
-                </div>
+               
+ 
+<!-- ... (Previous HTML code) ... -->
+<div class='row'>
+    <label for='school-name' class='col-4 form-label text-right h4'>School</label>
+    <div class='col-8'>
+        <select name='school-name' id='school' class='form-select form-select-lg' required>"
+        ?>
+            <?php
+            $schools = ['bole school', 'lideta', 'menilik', 'Akaki', 'arada'];
+            foreach ($schools as $school) {
+                $selected = ($row['school_name'] == $school) ? 'selected' : '';
+                echo "<option value='$school' $selected>$school</option>";
+            }
+            ?>
+            <?php
+            echo "
+        </select>
+    </div>
+</div>
+
+<!-- ... (Remaining HTML code) ... -->
+
 
                
                 <div class='row mt-3 justify-content-center'>
@@ -104,13 +126,8 @@
                
                 
                 </form>
-                </div>
-                ";
-
-
-
-
-        }}}
+                </div>";
+            }}}
         catch(Exception $e){
             echo $e->getMessage();
         }
