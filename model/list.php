@@ -4,20 +4,31 @@ require_once('dbselect.php');
 $tb_name = "Student";
 $results_per_page= 1;
 
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+   
+    
+    
+}
+else{
+    $page = 1;
+  
+}
 
-$page = $_GET['page'] ?? 1;
 
 
 
 $start_from = ($page -1) * $results_per_page;
 
-if(isset($_POST["search_submit"])){
-    $search = $_POST['search_text'];
-    $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND first_name = '$search' LIMIT $start_from,$results_per_page";
+if(isset($_GET['search_text'])){
+    $search = $_GET['search_text'];
+    $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND first_name = '$search'LIMIT $start_from,$results_per_page";
+
 }
-elseif (isset($_POST['school_submit'])){
-    $school_name = $_POST['school_filter'];
-    $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND school_name = '$school_name'LIMIT $start_from,$results_per_page"; 
+elseif(isset($_GET['school_filter'])){
+    $school_name = $_GET['school_filter'];
+    $sql_fetch = "select * from $tb_name where deleted_at IS NULL AND school_name = '$school_name'LIMIT $start_from,$results_per_page";
+    
 }
 else{
     $sql_fetch = "select * from $tb_name where deleted_at IS NULL LIMIT $start_from,$results_per_page"; 
