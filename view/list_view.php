@@ -151,7 +151,7 @@ elseif(isset($_GET['school_filter'])){
   <ul class='pagination'>";
   if($total_pages > 1){
         if(isset($_GET['page']) ){
-            echo "<li class = 'page-item'><a class = 'page-link' href='?page =". $_GET['page'] - 1 . "&search_text=" . urlencode($search)."'>previsous </a></li>";
+            echo "<li class = 'page-item'><a class = 'page-link' href='?page =". $_GET['page'] - 1 . "&search_text=" . urlencode($school_name)."'>previsous </a></li>";
         }
         else{
             echo "<li class = 'page-item'><a class='page-link' href = ''>previsous</a></li>";
@@ -167,7 +167,7 @@ elseif(isset($_GET['school_filter'])){
         }
       
         if(!isset($_GET['page'])){
-            echo "<li class = 'page-item'><a class = 'page-link' href ='?page=2" . "&search_text=" . urlencode($search)."'>Next</a></li>";}
+            echo "<li class = 'page-item'><a class = 'page-link' href ='?page=2" . "&search_text=" . urlencode($school_name)."'>Next</a></li>";}
         
         else{
             if($_GET['page'] >= $total_pages){
@@ -175,7 +175,7 @@ elseif(isset($_GET['school_filter'])){
 
             }
             else{
-                echo "<li class = 'page-item'><a class= 'page-link' href='?page=".$_GET['page'] + 1 . "&search_text=" . urlencode($search)."'>Next</a></li>";
+                echo "<li class = 'page-item'><a class= 'page-link' href='?page=".$_GET['page'] + 1 . "&search_text=" . urlencode($school_name)."'>Next</a></li>";
             }
         }}
        
