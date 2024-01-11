@@ -2,7 +2,6 @@
 require_once('dbselect.php');
 $tb_name = "Student";
 if(isset($_POST['submit'])){
-    echo "post is working";
     $efname =mysqli_real_escape_string($conn, $_POST["first-name"]);
     $emname =mysqli_real_escape_string($conn,$_POST["middel-name"]);
     $elname = mysqli_real_escape_string($conn,$_POST["last-name"]);
